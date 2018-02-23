@@ -19,7 +19,7 @@ function theme_js() {
     if ( !is_admin() ) {
         wp_deregister_script('jquery');
     }
-    wp_enqueue_script( 'jquery_js', 'https://code.jquery.com/jquery-3.2.1.slim.min.js');
+    wp_enqueue_script( 'jquery_js', 'http://code.jquery.com/jquery-3.3.1.min.js');
     wp_enqueue_script( 'popper_js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
     wp_enqueue_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
     wp_enqueue_script( 'my_custom_js', get_template_directory_uri() . '/js/scripts.js');
@@ -41,6 +41,10 @@ add_action( 'init', 'register_my_menus' );
 
 add_theme_support('custom-logo');
 
+/*add thumbnails support*/
+
+add_theme_support( 'post-thumbnails' );
+
 /*register sidebar*/
 
 function true_register_wp_sidebars() {
@@ -59,87 +63,22 @@ function true_register_wp_sidebars() {
 
 add_action( 'widgets_init', 'true_register_wp_sidebars' );
 
-/*Add custom post type*/
 
-add_action( 'init', 'register_new_post_type' );
+/*==Create Custom Post Type Books==*/
 
-function register_new_post_type() {
-    $labels = array(
-        'name' => 'Books',
-        'singular_name' => 'Book',
-        'add_new' => 'Add book',
-        'add_new_item' => 'Add new book',
-        'edit_item' => 'Edit Book',
-        'new_item' => 'New Book',
-        'all_items' => 'All books',
-        'view_item' => 'View book',
-        'search_items' => 'Search book',
-        'not_found' =>  'books not found.',
-        'menu_name' => 'Books'
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'show_ui' => true,
-        'has_archive' => true,
-        'menu_position' => 3,
-        'supports' => array( 'title', 'editor', 'comments', 'author', 'thumbnail')
-    );
-    register_post_type('books', $args);
-}
+require_once ('modules/Books.php');
+
+Books::init();
 
 
-/*Add taxonomy*/
+require_once('modules/WidgetFilter.php');
 
-function new_taxonomy(){
-    $labels = array(
-        'name' =>'Book Type',
-        'singular_name'=>'Book Type',
-        'add_new_item'=>'Add Book Type',
-        'new_item_name'=>'New Book Type',
-        'all_items'=>'All Book Types',
-        'edit_item'=>'Edit Book Type',
-        'update_item'=>'Update Book Type',
-        'view_items'=>'View Book Type',
-        'search_items'=>'Search Book Type',
-        'parent_item'=>'Parent Book Type',
-        'parent_item_colon'=>'Parent Book Type',
-    );
-    $args = array(
-        'hierarchical'=>true,
-        'labels'=>$labels,
-        'show_ui'=>true,
-        'show_admin_column'=>true,
-        'query_var'=>true,
-        'rewrite'=>array('slug'=>'book-type'),
-    );
-    register_taxonomy('book-type',array('books'),$args);
-}
-add_action('init','new_taxonomy');
+$filerWidget = new WidgetFilter();
 
-/*add metabox*/
 
-/* book_extra_fields */
-add_action('add_meta_boxes', 'book_extra_fields', 1);
-function book_extra_fields() {
-    add_meta_box( 'book_extra_fields', 'Book extra fields', 'extra_fields_box_func', 'books', 'normal', 'high'  );
-}
-function extra_fields_box_func(  ){
-    // Поля формы для введения данных
-    echo '<label for="myplugin_new_field">' . __("Augthor", 'myplugin_textdomain' ) . '</label> ';
-    echo '<input type="text" id= "myplugin_new_field" name="myplugin_new_field" value="Enter Augthor name" size="25" />';
-}
 
-function myplugin_save_postdata( $post_id ) {
-    if ( ! isset( $_POST['myplugin_new_field'] ) )
-        return;
-    if ( ! wp_verify_nonce( $_POST['myplugin_noncename'], plugin_basename(__FILE__) ) )
-        return;
-    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
-        return;
-    if( ! current_user_can( 'edit_post', $post_id ) )
-        return;
-    $my_data = sanitize_text_field( $_POST['myplugin_new_field'] );
-    update_post_meta( $post_id, '_my_meta_value_key', $my_data );
-}
-add_action( 'save_post', 'myplugin_save_postdata' );
+
+
+
+
+

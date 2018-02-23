@@ -8,7 +8,7 @@ get_header();
         <h1 class="page-header"><?php the_title(); ?></h1>
 
         <div class="row">
-            <div id="left-side" class="col-8">
+            <div id="left-side" class="col">
 
                 <?php
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -21,20 +21,7 @@ get_header();
 
             </div>
 
-            <div id="right-side" class="col-4">
 
-                <?php if ( is_active_sidebar( 'true_side' ) ) : ?>
-
-                    <div id="true-side" class="sidebar">
-
-                        <?php dynamic_sidebar( 'true_side' ); ?>
-
-                    </div>
-
-                <?php endif; ?>
-
-
-            </div>
         </div>
 
     </div>

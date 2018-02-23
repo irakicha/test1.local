@@ -29,9 +29,19 @@ li{
     list-style-type: none;
 }
 
+a{
+    color: #000000;
+}
+
+a:active{
+    color: #333333;
+}
+
 a:hover{
+    color: #5C5C5C;
     text-decoration: none;
     transition: all 0.3s 0.01s ease;
+    cursor: pointer;
 }
 
 
@@ -86,7 +96,11 @@ a:hover{
 .template-index,
 .template-page,
 .template-404,
-.template-single{
+.template-single,
+.template-archive,
+.template-single-book,
+.template-archive-books,
+.template-books{
     padding-top: 40px;
     padding-bottom: 70px;
 }
@@ -97,7 +111,7 @@ h1{
 }
 
 .promo{
-    min-height: 700px;
+    min-height: 500px;
     padding-top: 50px;
     padding-bottom:70px;
     color: #fff;
@@ -107,6 +121,22 @@ h1{
 .books{
     padding-top: 50px;
     padding-bottom:70px;
+}
+
+.book-item{
+    border: 1px solid #777777;
+    padding: 50px;
+    border-radius:3px;
+    margin-bottom:35px;
+}
+
+.book-item:hover{
+    opacity:.8;
+}
+
+.book-item img{
+    max-width:200px;
+    max-height: 300px;
 }
 
 .site-footer{
@@ -141,5 +171,61 @@ h1{
 
 .footer-column a:hover{
     color: #82b725;
+}
+
+.home-books-title{
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: #82b725;
+}
+
+.archive-books-item{
+    padding:15px;
+    margin-bottom:30px;
+
+}
+
+.archive-books-container{
+    padding:30px 25px 5px;
+    border: 1px solid #777777;
+    border-radius:3px;
+    min-height: 640px;
+}
+
+.archive-books-item:hover{
+    opacity:.8;
+}
+
+.archive-books-item h2{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.archive-books-item p{
+    font-size:1rem;
+    text-align: left;
+}
+
+.archive-books-thumbnail img{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    max-height: 280px;
+    margin-bottom: 15px;
+    }
+
+.single-book-header{
+    margin-bottom: 30px;
+}
+
+.single-book-header img{
+    max-width: 100%;
+    height:100%;
+    max-height: 370px;
+}
+
+.single-book-description{
+    padding: 15px;
 }
 

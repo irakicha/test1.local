@@ -7,24 +7,46 @@ get_header();
 
     <div id="main" class="template-index container">
 
-        <h1 class="page-header"><?php the_title(); ?></h1>
+        <div class="row">
 
-        <?php
+            <div id="left-side" class="col-9">
 
-        if ( have_posts() ){
-            while ( have_posts() ){
+                <?php if (have_posts()) : ?>
 
-                echo '<h3><a href="'. get_permalink() .'">'. get_the_title() .'</a></h3>';
+                    <?php
 
-                the_post();
+                    while (have_posts()) : the_post(); ?>
 
-            }
-        }
+                        <h2>
+                            <a href='<?php echo get_permalink(); ?>'><?php echo the_title(); ?></a>
+                        </h2>
 
-        else{
-            echo ' <p>You have no posts...</p>';
-        }
-        ?>
+                    <?php endwhile;
+
+
+                else :
+
+                    echo 'you have no posts';
+
+                endif;
+                ?>
+            </div>
+
+            <div id="right-side" class="col-2">
+
+                <?php if (is_active_sidebar('true_side')) : ?>
+
+                    <div id="true-side" class="sidebar">
+
+                        <?php dynamic_sidebar('true_side'); ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+
+            </div>
+        </div>
 
     </div>
 

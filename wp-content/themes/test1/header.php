@@ -25,7 +25,7 @@
 
                 <div class="row">
 
-                    <div class="col logo">
+                    <div class="col-4 logo">
                         <?php
 
                         if( has_custom_logo() ){
@@ -40,7 +40,7 @@
 
                     </div>
 
-                    <div class="col">
+                    <div class="col-8">
 
                         <nav id="menu" class="main-menu">
 
