@@ -38,7 +38,7 @@ class WidgetFilter extends WP_Widget {
 
         if( $terms = get_terms( 'book-genre', 'orderby=name' ) ) :
             foreach ($terms as $term) :
-                echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a></br>';
+                echo '<a href="' . get_term_link( $term ) . '" class="book-filter">' . $term->name . '</a></br>';
             endforeach;
 
         endif;

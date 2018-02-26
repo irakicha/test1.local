@@ -48,12 +48,12 @@ get_header();
 //                )
             );
 
-            $books = new WP_Query( $args );
-            if( $books->have_posts() ) :
+            $query = new WP_Query( $args );
+            if( $query->have_posts() ) :
                 ?>
                     <?php
-                    while( $books->have_posts() ) :
-                        $books->the_post();
+                    while( $query->have_posts() ) :
+                        $query->the_post();
                         ?>
                         <div class="row book-item">
                             <div class="col-3">
@@ -84,7 +84,7 @@ get_header();
                     ?>
                 <?php
             else :
-                esc_html_e( 'No testimonials in the diving taxonomy!', 'text-domain' );
+                esc_html_e( 'No taxonomy!', 'text-domain' );
             endif;
             ?>
 

@@ -4,46 +4,48 @@
 get_header();
 
 ?>
-<?php if (have_posts()) : ?>
-    
+
+
     <div id="main" class="template-archive-books container">
 
         <div class="row">
 
+            <?php if (have_posts()) : ?>
+
             <div id="left-side" class="col-10">
 
-                    <div class="row archive-books-row">
+                <div class="row archive-books-row">
 
-                        <?php
-                        while (have_posts()) : the_post(); ?>
+                    <?php
+                    while (have_posts()) : the_post(); ?>
 
-                            <div class="col-4 archive-books-item">
+                        <div class="col-4 archive-books-item">
 
-                                <div class="archive-books-container">
+                            <div class="archive-books-container">
 
-                                    <div class="archive-books-thumbnail">
-                                        <a href='<?php echo get_permalink(); ?>'><?php
-                                            if (has_post_thumbnail()) {
-                                                the_post_thumbnail();
-                                            }
-                                            ?>
-                                        </a>
-                                    </div>
-                                    <div class="">
-                                        <h2>
-                                            <a href='<?php echo get_permalink(); ?>'><?php echo the_title(); ?></a>
-                                            <p><?php echo the_excerpt(); ?></p>
-                                        </h2>
-                                    </div>
-
+                                <div class="archive-books-thumbnail">
+                                    <a href='<?php echo get_permalink(); ?>'><?php
+                                        if (has_post_thumbnail()) {
+                                            the_post_thumbnail();
+                                        }
+                                        ?>
+                                    </a>
+                                </div>
+                                <div class="">
+                                    <h2>
+                                        <a href='<?php echo get_permalink(); ?>'><?php echo the_title(); ?></a>
+                                        <p><?php echo the_excerpt(); ?></p>
+                                    </h2>
                                 </div>
 
                             </div>
 
-                        <?php endwhile; ?>
+                        </div>
 
-                    </div>
-                    <?php
+                    <?php endwhile; ?>
+
+                </div>
+                <?php
 
                 else :
 
@@ -58,18 +60,20 @@ get_header();
 
                 <?php if (is_active_sidebar('true_side')) : ?>
 
-                    <div id="true-side" class="sidebar">
+                <div id="true-side" class="sidebar">
 
-                        <?php dynamic_sidebar('true_side'); ?>
+                    <?php dynamic_sidebar('true_side'); ?>
 
-                    </div>
+                </div>
 
             </div>
+
+        <?php endif; ?>
 
         </div>
 
     </div>
-<?php endif; ?>
+
 
 <?php
 

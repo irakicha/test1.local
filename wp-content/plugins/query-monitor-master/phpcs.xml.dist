@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<ruleset name="Query Monitor">
+
+	<config name="installed_paths" value="../../wp-coding-standards/wpcs,../../wimg/php-compatibility" />
+	<config name="testVersion" value="5.2-"/>
+
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<rule ref="WordPress-VIP">
+
+		<exclude name="WordPress.NamingConventions" />
+		<exclude name="WordPress.Files.FileName" />
+
+		<!-- QM is a debugging plugin, so silence warnings about usage of development functionality -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions" />
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_error_reporting" />
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_set" />
+		<exclude name="WordPress.DB.RestrictedFunctions" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.cookies_setcookie" />
+		<exclude name="WordPress.VIP.RestrictedVariables.cache_constraints___COOKIE" />
+		<exclude name="WordPress.VIP.SuperGlobalInputUsage.AccessDetected" />
+
+		<!-- QM currently supports WordPress versions older than 4.4: -->
+		<exclude name="WordPress.WP.AlternativeFunctions.parse_url_parse_url" />
+
+		<!-- QM currently supports WordPress versions older than 4.1: -->
+		<exclude name="WordPress.WP.AlternativeFunctions.json_encode_json_encode" />
+
+		<!-- QM currently supports PHP versions older than 5.3: -->
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode" />
+
+		<!-- @TODO remove this exclusion: -->
+		<exclude name="Squiz.Commenting" />
+		<exclude name="Squiz.PHP.CommentedOutCode" />
+		<!-- @TODO remove this exclusion: -->
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
+
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+
+		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
+
+	</rule>
+
+	<rule ref="WordPress-Docs" />
+
+	<!-- This has no effect. See https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1226 -->
+	<rule ref="WordPress.XSS.EscapeOutput">
+		<properties>
+			<property type="array" name="customAutoEscapedFunctions" value="build_toggler"/>
+		</properties>
+	</rule>
+
+	<!-- Not interested in whitespace issues in JS files at the moment -->
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<exclude-pattern>*.js</exclude-pattern>
+	</rule>
+
+	<!-- The VIP sniffer triggers false positives for this rule -->
+	<rule ref="WordPress.VIP.AdminBarRemoval">
+		<exclude-pattern>*.css</exclude-pattern>
+	</rule>
+
+	<!-- Custom rule properties -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="query-monitor" />
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.DeprecatedFunctions">
+		<properties>
+			<property name="minimum_supported_version" value="3.7" />
+		</properties>
+	</rule>
+
+	<!-- debug_backtrace( false ) gets flagged as an error. Ignore it as it only affects PHP 5.2.4 -->
+	<rule ref="PHPCompatibility">
+		<exclude name="PHPCompatibility.PHP.NewFunctionParameters.debug_backtrace_optionsFound" />
+	</rule>
+
+	<!-- The following files use mysql_*() functions within mysqli conditional logic -->
+	<rule ref="PHPCompatibility.PHP.RemovedExtensions.mysql_DeprecatedRemoved">
+		<exclude-pattern>collectors/environment.php</exclude-pattern>
+		<exclude-pattern>wp-content/db.php</exclude-pattern>
+	</rule>
+
+</ruleset>
