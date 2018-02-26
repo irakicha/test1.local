@@ -18,6 +18,16 @@ class ThemeSetup
         /*add thumbnails support*/
 
         add_theme_support( 'post-thumbnails' );
+
+
+        add_action('wp_enqueue_scripts', array(get_called_class(), 'theme_enqueue_style'));
+
+        add_action('wp_enqueue_scripts', array(get_called_class(), 'theme_enqueue_js'));
+
+        add_action('init', array(get_called_class(), 'register_my_menus'));
+
+        add_action( 'widgets_init',  array(get_called_class(), 'true_register_wp_sidebars') );
+
     }
 
     public function theme_enqueue_style()
@@ -32,7 +42,7 @@ class ThemeSetup
     }
 
 
-    public function theme_js()
+    public function theme_enqueue_js()
     {
         global $wp_scripts;
         if (!is_admin()) {

@@ -1,17 +1,16 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: ira
  * Date: 22.02.18
  * Time: 13:17
  */
-
 class Books
 {
 
     public static function init()
     {
-
         /*Add custom post type*/
 
         add_action('init', array(get_called_class(), 'register_new_post_type'));
@@ -130,22 +129,6 @@ class Books
     }
 
 
-    /*Replace post type to taxonomy in URI*/
-
-    public static function books_permalink_structure($post_link, $post, $leavename, $sample)
-    {
-        if (false !== strpos($post_link, '%book-genre%')) {
-            $book_genre_type_term = get_the_terms($post->ID, 'book-genre');
-
-            if (!empty($book_genre_type_term))
-                $post_link = str_replace('%book-genre%', array_pop($book_genre_type_term)->
-                slug, $post_link);
-            else
-                $post_link = str_replace('%book-genre%', 'uncategorized', $post_link);
-        }
-        return $post_link;
-    }
-
     /*add metabox*/
 
 
@@ -154,10 +137,10 @@ class Books
         $screens = ['books'];
         foreach ($screens as $screen) {
             add_meta_box(
-                'book_year_metabox_id',                    // Unique ID
-                'Book Publish Year',                      // Box title
-                array(get_called_class(), 'custom_box_html'),  // Content callback, must be of type callable
-                $screen                                        // Post type
+                'book_year_metabox_id',
+                'Book Publish Year',
+                array(get_called_class(), 'custom_box_html'),
+                $screen
             );
         }
     }
@@ -168,7 +151,7 @@ class Books
         ?>
         <label for="book_year_metabox_field">Add publish year</label>
         <input type="number" name="book_year_metabox_field" id="book_year_metabox" class="metabox"
-               value="<?php echo $value; ?>">
+               value="<?php echo $value; ?>" required>
 
         <?php
     }
@@ -183,5 +166,21 @@ class Books
             );
         }
     }
+
+    /*Replace post type to taxonomy in URI*/
+
+    function books_permalink_structure($post_link, $post, $leavename, $sample)
+    {
+        if (false !== strpos($post_link, '%book-genre%')) {
+            $projectscategory_type_term = get_the_terms($post->ID, 'book-genre');
+            if (!empty($projectscategory_type_term))
+                $post_link = str_replace('%book-genre%', array_pop($projectscategory_type_term)->
+                slug, $post_link);
+            else
+                $post_link = str_replace('%book-genre%', 'uncategorized', $post_link);
+        }
+        return $post_link;
+    }
+
 
 }
