@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     /*container with content*/
 
@@ -8,7 +8,7 @@ $(function() {
 
     /*send ajax by click on reference*/
 
-    $('.book-filter').on('change', function (){
+    $('.book-filter').on('change', function () {
         // e.preventDefault();
 
         var el = $(this),
@@ -21,24 +21,27 @@ $(function() {
             allTitles.push(elTitle);
         } else {
             var idx = $.inArray(elLink, allTax);
-            if( idx > -1 ){
+            if (idx > -1) {
                 allTax.splice(idx, 1);
             }
 
-            var idxx = $.inArray(elTitle, allTitles);
-            if( idx > -1 ){
-                allTitles.splice(idxx, 1);
-            }
-            if (allTax.length  == 0){
+            if (allTax.length == 0) {
                 window.location.href = "/books/"
             }
+
+            var idxx = $.inArray(elTitle, allTitles);
+            if (idx > -1) {
+                allTitles.splice(idxx, 1);
+            }
+
+
         }
 
-            document.title = elTitle;
+        document.title = elTitle;
 
-            history.pushState({page_title:elTitle}, elTitle, elLink);
+        history.pushState({page_title: elTitle}, elTitle, elLink);
 
-            ajaxCat(elLink, allTitles, allTax);
+        ajaxCat(elLink, allTitles, allTax);
 
 
     });
@@ -48,20 +51,20 @@ $(function() {
 
     function ajaxCat(elLink, allTitles, allTax) {
 
-        mainContent.animate({opacity:.5}, 300);
+        mainContent.animate({opacity: .5}, 300);
 
         $.post(
             customAjax.ajaxurl,
             {
                 action: 'getCat',
                 link: elLink,
-                title:allTitles,
-                allTax:allTax
+                title: allTitles,
+                allTax: allTax
             },
             function (response) {
                 mainContent
                     .html(response)
-                    .animate({opacity:1}, 300);
+                    .animate({opacity: 1}, 300);
             });
     }
 

@@ -2,8 +2,9 @@
 /* Template Name:Front-page*/
 get_header();
 
-?>
+phpinfo();
 
+?>
 
     <div id="home" class="template-home">
 
