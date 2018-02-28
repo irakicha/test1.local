@@ -7,7 +7,6 @@ get_header();
     <div id="page" class="template-single-book container">
 
 
-
         <div class="row single-book-header">
 
             <div class="col-3">
@@ -21,18 +20,23 @@ get_header();
 
                 <h1 class="post-header"><?php the_title(); ?></h1>
 
-                <p class="book-genre">Book Genre: <?php
-                    $cur_terms = get_the_terms( $post->ID, 'book-genre' );
+                <?php if(has_term('', 'book-genres', $post->ID)) : ?>
 
-                    foreach( $cur_terms as $cur_term ){
-                        echo '<a href="'. get_term_link( (int)$cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a>';
-                    }
-                    ?>
-                </p>
+                    <p class="book-genre">Book Genre: <?php
+                        $cur_terms = get_the_terms( $post->ID, "book-genres" );
 
+                        foreach( $cur_terms as $cur_term ){
+                            echo '<a href="'. get_term_link( (int)$cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a>';
+                        }
+                        ?>
+                    </p>
+
+                <?php endif; ?>
+
+                <?php if(has_term('', 'book-authors', $post->ID)) : ?>
 
                 <p class="book-author">Book Author: <?php
-                    $cur_terms = get_the_terms( $post->ID, 'book-author' );
+                    $cur_terms = get_the_terms( $post->ID, "book-authors" );
 
                     foreach( $cur_terms as $cur_term ){
                         echo '<a href="'. get_term_link( (int)$cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a>';
@@ -40,8 +44,10 @@ get_header();
                     ?>
                 </p>
 
+                <?php endif; ?>
 
-                <p class="publish-year">Publish Year: <?php echo get_post_meta($post->ID, 'book_year_meta_key', true); ?></p>
+
+                <p class="publish-year">Publish Year: <?php echo get_post_meta(get_the_ID(), 'book_year_meta_key', true); ?></p>
 
             </div>
         </div>
@@ -52,7 +58,7 @@ get_header();
             if (have_posts()) : while (have_posts()) : the_post();
                 the_content();
 
-            
+
             endwhile;
             else :
                 _e('Sorry, no posts matched your criteria.', 'test1');

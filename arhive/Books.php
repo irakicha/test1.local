@@ -9,19 +9,19 @@
 class Books
 {
 
-    public static function init()
+    public function __construct()
     {
         /*Add custom post type*/
 
-        add_action('init', array(get_called_class(), 'register_new_post_type'));
+//        add_action('init', array(get_called_class(), 'register_new_post_type'));
 
         /*Add Book Genre taxonomy*/
 
-        add_action('init', array(get_called_class(), 'new_taxonomy'));
+//        add_action('init', array(get_called_class(), 'new_taxonomy'));
 
         /*Add Book Author taxonomy*/
 
-        add_action('init', array(get_called_class(), 'new_author_taxonomy'));
+//        add_action('init', array(get_called_class(), 'new_author_taxonomy'));
 
         /*Replace post type to taxonomy in URI*/
 
@@ -29,10 +29,44 @@ class Books
 
         /*Add metabox*/
 
-        add_action('add_meta_boxes', array(get_called_class(), 'add_custom_box'));
+//        add_action('add_meta_boxes', array(get_called_class(), 'add_custom_box'));
+//
+//        add_action('save_post', array(get_called_class(), 'metabox_save_postdata'));
 
-        add_action('save_post', array(get_called_class(), 'metabox_save_postdata'));
+
+//        add_action( 'wp_loaded', array($this, 'add_clinic_permastructure' ));
+//
+//        add_filter( 'post_type_link', array($this, 'booksPermalinks'), 10, 2);
     }
+
+    // Add our custom permastructures for custom taxonomy and post
+
+    function add_clinic_permastructure() {
+        global $wp_rewrite;
+//        add_permastruct( 'book-genres', 'books/%book-genres%', false );
+        add_permastruct( 'books', 'books/%book-genres%/%books%', false );
+    }
+
+
+    /*Replace post type to taxonomy in URI*/
+
+    function booksPermalinks( $permalink, $post ) {
+        if ( $post->post_type !== 'books' ) {
+            return $permalink;
+        }
+
+        $terms = get_the_terms( $post->ID, 'book-genres' );
+
+        if ( ! $terms ) {
+            return str_replace( '%book-genres%/', '', $permalink );
+        }
+        $post_terms = array();
+        foreach ( $terms as $term )
+            $post_terms[] = $term->slug;
+        return str_replace( '%book-genres%', implode( ',', $post_terms ) , $permalink );
+    }
+
+
 
     public static function register_new_post_type()
     {
@@ -59,7 +93,7 @@ class Books
             'show_in_menu' => true,
             'query_var' => true,
             'taxonomies' => array('books-categories'),
-//            'rewrite' => array('slug' => 'books/%book-genre%', 'with_front' => false),
+//            'rewrite' => array('slug' => 'books/%book-genre%/%books%', 'with_front' => false),
             'capability_type' => 'post',
             'has_archive' => true,
             'hierarchical' => false,
@@ -123,7 +157,7 @@ class Books
             'show_ui' => true,
             'show_admin_column' => true,
             'query_var' => true,
-//            'rewrite' => array('slug' => 'books'),
+//            'rewrite' => array('slug' => 'books/%book-genre%', 'with_front' => false),
         );
         register_taxonomy('book-genre', array('books'), $args);
     }
@@ -132,7 +166,7 @@ class Books
     /*add metabox*/
 
 
-    function add_custom_box()
+    public static function add_custom_box()
     {
         $screens = ['books'];
         foreach ($screens as $screen) {
@@ -168,19 +202,19 @@ class Books
     }
 
     /*Replace post type to taxonomy in URI*/
-
-    function books_permalink_structure($post_link, $post, $leavename, $sample)
-    {
-        if (false !== strpos($post_link, '%book-genre%')) {
-            $projectscategory_type_term = get_the_terms($post->ID, 'book-genre');
-            if (!empty($projectscategory_type_term))
-                $post_link = str_replace('%book-genre%', array_pop($projectscategory_type_term)->
-                slug, $post_link);
-            else
-                $post_link = str_replace('%book-genre%', 'uncategorized', $post_link);
-        }
-        return $post_link;
-    }
+//
+//    function books_permalink_structure($post_link, $post, $leavename, $sample)
+//    {
+//        if (false !== strpos($post_link, '%book-genre%')) {
+//            $projectscategory_type_term = get_the_terms($post->ID, 'book-genre');
+//            if (!empty($projectscategory_type_term))
+//                $post_link = str_replace('%book-genre%', array_pop($projectscategory_type_term)->
+//                slug, $post_link);
+//            else
+//                $post_link = str_replace('%book-genre%', 'uncategorized', $post_link);
+//        }
+//        return $post_link;
+//    }
 
 
 }

@@ -7,7 +7,7 @@ get_header();
 
     <div id="main" class="template-archive container">
 
-        <h1><?php echo the_archive_title(); ?></h1>
+        <h1><?php post_type_archive_title(); ?></h1>
 
         <?php if ( have_posts() ) : ?>
 

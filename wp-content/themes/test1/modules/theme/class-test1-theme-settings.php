@@ -6,29 +6,36 @@
  * Time: 13:17
  */
 
-class ThemeSetup
+class Test1_Theme_Settings
 {
 
     public function __construct()
     {
+
+        $this->init();
+
+    }
+
+    public function init(){
+
         /*add custom logo*/
 
         add_theme_support('custom-logo');
 
         /*add thumbnails support*/
 
-        add_theme_support( 'post-thumbnails' );
+        add_theme_support('post-thumbnails');
 
 
-        add_action('wp_enqueue_scripts', array(get_called_class(), 'theme_enqueue_style'));
+        add_action('wp_enqueue_scripts', array($this, 'theme_enqueue_style'));
 
-        add_action('wp_enqueue_scripts', array(get_called_class(), 'theme_enqueue_js'));
+        add_action('wp_enqueue_scripts', array($this, 'theme_enqueue_scripts'));
 
-        add_action('init', array(get_called_class(), 'register_my_menus'));
+        add_action('init', array($this, 'register_my_menus'));
 
-        add_action( 'widgets_init',  array(get_called_class(), 'true_register_wp_sidebars') );
-
+        add_action('widgets_init', array($this, 'true_register_wp_sidebars'));
     }
+
 
     public function theme_enqueue_style()
     {
@@ -36,18 +43,20 @@ class ThemeSetup
             // load parent stylesheet first if this is a child theme
             wp_enqueue_style('parent-stylesheet', trailingslashit(get_template_directory_uri()) . 'style.css', false);
         }
+
         // load active theme stylesheet in both cases
         wp_enqueue_style('bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
         wp_enqueue_style('theme-stylesheet', get_stylesheet_uri(), false);
     }
 
 
-    public function theme_enqueue_js()
+    public function theme_enqueue_scripts()
     {
         global $wp_scripts;
         if (!is_admin()) {
             wp_deregister_script('jquery');
         }
+
         wp_enqueue_script('jquery', 'http://code.jquery.com/jquery-3.3.1.min.js');
         wp_enqueue_script('popper_js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
         wp_enqueue_script('bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
@@ -63,13 +72,14 @@ class ThemeSetup
         register_nav_menus(
             array(
                 'header-menu' => __('Header Menu'),
-                'footer-menu' => __('Footer Menu')
+                'footer-menu' => __('Footer Menu'),
             )
         );
     }
 
 
-    public function true_register_wp_sidebars() {
+    public function true_register_wp_sidebars()
+    {
         register_sidebar(
             array(
                 'id' => 'true_side',

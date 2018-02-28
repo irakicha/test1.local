@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: test1
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,7 +30,7 @@ CREATE TABLE `wp_terms` (
   PRIMARY KEY (`term_id`),
   KEY `slug` (`slug`(191)),
   KEY `name` (`name`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `wp_terms` (
 
 LOCK TABLES `wp_terms` WRITE;
 /*!40000 ALTER TABLE `wp_terms` DISABLE KEYS */;
-INSERT INTO `wp_terms` VALUES (1,'Uncategorized','uncategorized',0),(4,'header-menu','header-menu',0),(5,'footer-menu','footer-menu',0),(6,'News','news',0);
+INSERT INTO `wp_terms` VALUES (1,'Uncategorized','uncategorized',0),(4,'header-menu','header-menu',0),(5,'footer-menu','footer-menu',0),(6,'News','news',0),(8,'Satire','satire',0),(9,'Fantasy','fantasy',0),(10,'Tragedy','tragedy',0),(11,'S. King','stephen-king',0),(12,'J. R. R. Tolkien','john-tolkien',0),(13,'W. Shakespeare','william-shakespeare',0),(14,'C. Bukowski','charles-bukowski',0),(15,'C. Palahniuk','chuck-palahniuk',0),(16,'Satire','satire',0),(17,'Fantasy','fantasy',0),(18,'Tragedy','tragedy',0),(20,'S. King','stephen-king',0),(23,'W. Shakespeare','william-shakespeare',0),(24,'C. Bukowski','charles-bukowski',0),(25,'J. R. R. Tolkien','john-tolkien',0),(26,'C. Palahniuk','chuck-palahniuk',0),(28,'Fantasy','fantasy',0),(29,'Satire','satire',0),(30,'Tragedy','tragedy',0);
 /*!40000 ALTER TABLE `wp_terms` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-21 14:26:10
+-- Dump completed on 2018-02-28 14:17:12

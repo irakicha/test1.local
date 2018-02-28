@@ -1,10 +1,10 @@
 <?php
 
-class BookContentShortcode
+class Books_Content_Shortcode
 {
     public function __construct()
     {
-        add_shortcode('book-content', array(get_called_class(), 'createShortCode'));
+        add_shortcode('book-content', array($this, 'createShortCode'));
     }
 
     public function createShortCode()
@@ -26,8 +26,10 @@ class BookContentShortcode
                 <div class="">
                     <h2>
                         <a href='<?php echo get_permalink(); ?>'><?php echo the_title(); ?></a>
-                        <p><?php echo the_excerpt(); ?></p>
                     </h2>
+                        <p class="publish-year">Publish Year: <?php echo get_post_meta(get_the_ID(), 'book_year_meta_key', true); ?></p>
+                        <p><?php echo the_excerpt(); ?></p>
+
                 </div>
 
             </div>
