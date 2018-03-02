@@ -2,8 +2,6 @@
 /* Template Name:Front-page*/
 get_header();
 
-phpinfo();
-
 ?>
 
     <div id="home" class="template-home">
@@ -40,13 +38,6 @@ phpinfo();
                 'post_type'   => 'books',
                 'post_status' => 'publish',
                 'posts_per_page'=>2,
-//                'tax_query'   => array(
-//                    array(
-//                        'taxonomy' => 'book-genre',
-//                        'field'    => 'slug',
-//                        'terms'    => 'satire'
-//                    )
-//                )
             );
 
             $query = new WP_Query( $args );

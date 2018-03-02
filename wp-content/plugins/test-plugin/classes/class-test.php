@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Created by PhpStorm.
  * User: phpstudent
  * Date: 28.02.18
  * Time: 16:49
@@ -27,11 +26,8 @@ class Test
         }
 
         extract(shortcode_atts(array(
-            'include' => '', 'id' => $pid, 'itemtag' => 'dl',
-            'icontag' => 'dt',
-            'captiontag' => 'dd',
-            'columns' => 3, 'size' => 'large',
-            'link' => 'file'),
+            'include' => '', 'id' => $pid,
+            ),
             $atts));
 
         $args = array(
@@ -40,32 +36,9 @@ class Test
             'post_mime_type' => 'image',
         );
 
-        if (!empty($include)) {$args['include'] = $include;}
-        else {
-            $args['numberposts'] = -1;
-        }
-
-        if ($args['include'] == "") { $args['order'] = 'asc';}
-
         $images = get_posts($args);
 
-        foreach ( $images as $image ) {
-            //print_r($image); /*see availabl   e fields*/
-            $thumbnail = wp_get_attachment_image_src($image->ID, 'large');
-            $thumbnail = $thumbnail[0];
-            $gallery .= "
-            
-			<figure>
-				<img src='".$thumbnail."'>
-				<figcaption>
-					<div class='img-title'>".$image->post_title."</div>
-					".$image->post_excerpt."
-				</figcaption>
-			</figure>";
-        }
-
-        $gallery= '<div class="slider">'.$gallery.'</div>';
-
+        require(TEST_PLUGIN_DIR."/templates/image-template.php");
 
         return $gallery;
 

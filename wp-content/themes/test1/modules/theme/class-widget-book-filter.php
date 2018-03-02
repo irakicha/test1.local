@@ -24,64 +24,109 @@ class Widget_Books_Filter extends WP_Widget
     function ajax_showCat()
     {
 
-//        print_r($_POST);
+        print_r($_POST);
+
+        $book_genres = [];
+        $book_authors = [];
 
 
-        $terms = $_POST['allTax'];
+        if (!empty($_POST['allTax'])) {
 
-        if (count($terms) < 2) {
+        $terms = $_POST['allTax'] ? wp_kses_post($_POST['allTax']) : false;
 
-            $link = !empty($_POST['link']) ? esc_attr($_POST['link']) : false;
+        foreach ($terms as $term) {
 
-            $slug = $link ? wp_basename($link) : false;
+            $term = explode('|', $term);
+            $tax_name = $term[0];
+            $term_name = $term[1];
+            if ($tax_name == "book-genres") {
+                array_push($book_genres, $term_name);
+            } elseif ($tax_name == "book-authors") {
+                array_push($book_authors, $term_name);
+            }
+        }
+
+
+            if (count($book_authors) == 0 || count($book_genres) == 0) {
+                $relation = 'OR';
+            } else {
+                $relation = 'AND';
+            }
 
             $args = array(
-                'orderby' => 'date',
+                'post_type' => 'books',
                 'tax_query' => array(
-                    'relation' => 'OR',
+                    'relation' => $relation,
                     array(
                         'taxonomy' => 'book-genres',
                         'field' => 'slug',
-                        'terms' => $terms
+                        'terms' => $book_genres,
                     ),
                     array(
                         'taxonomy' => 'book-authors',
                         'field' => 'slug',
-                        'terms' => $terms
-                    )
+                        'terms' => $book_authors,
+                    ),
+
                 )
             );
-
             $query = new WP_Query($args);
 
+            require(get_template_directory() . '/template-parts/books.php');
 
-        } else {
+            die();
+        }
+
+
+        if (!empty($_POST['minYear']) || !empty($_POST['maxYear'])) {
+
+        $min_year = $_POST['minYear'] ? wp_kses_post($_POST['minYear']) : '0000';
+        $max_year = $_POST['maxYear'] ? wp_kses_post($_POST['maxYear']) : date('Y');
+
 
             $args = array(
-                'orderby' => 'date',
-                'tax_query' => array(
-                    'relation' => 'AND',
+                'post_type' => 'books',
+                'meta_query' => array(
                     array(
-                        'taxonomy' => 'book-genres',
-                        'field' => 'slug',
-                        'terms' => $terms,
+                        'key' => 'book_year_meta_key',
+                        'value' => array($min_year, $max_year),
+                        'compare' => 'BETWEEN',
                     ),
-//                    array(
-//                        'taxonomy' => 'book-authors',
-//                        'field'    => 'slug',
-//                        'terms'    => array( $terms),
-//                        'operator' => 'NOT IN',
-//                    )
                 )
             );
-
             $query = new WP_Query($args);
 
+            require(get_template_directory() . '/template-parts/books.php');
+
+            die();
         }
-        require(get_template_directory() . '/template-parts/books.php');
 
 
-        die();
+//            $query = new WP_Query($args);
+
+//
+//        $min_year = !empty($_POST['minYear']) ? wp_kses_post($_POST['minYear']) : '0000';
+//        $max_year = !empty($_POST['maxYear']) ? wp_kses_post($_POST['maxYear']) : date('Y');
+//
+//        if( isset( $min_year ) || isset( $max_year ) ) {
+//            $args = array(
+//                'post_type' => 'books',
+//                'meta_query' => array(
+//                    array(
+//                        'key' => 'book_year_meta_key',
+//                        'value' =>array( $min_year, $max_year ),
+//                        'compare' => 'BETWEEN',
+//                    ),
+//                )
+//            );
+//            $query = new WP_Query($args);
+//        }
+
+//        $query = new WP_Query($args);
+
+//        require(get_template_directory() . '/template-parts/books.php');
+//
+//        die();
 
 
     }
@@ -106,14 +151,17 @@ class Widget_Books_Filter extends WP_Widget
 
             echo '<div class="text-widget">';
 
+            echo '<form id="filter-form">';
+
             echo '<p>Select Book Genre</p>';
 
-            if ($terms = get_terms('book-genres', 'orderby=name')) :
+            if ($terms = get_terms('book-genres')) :
                 foreach ($terms as $term) { ?>
                     <p>
                         <input type="checkbox" class="book-filter" id="<?= $term->slug ?>"
-                               value="<?= $term->term_id; ?>">
-                        <label class="book-filter-label" for="<?= $term->slug ?>"><?= $term->name; ?></label>
+                               value="<?php echo $term->term_id; ?>">
+                        <label class="book-filter-label" for="<?php echo $term->slug ?>"
+                               data-taxonomy="<?php echo $term->taxonomy ?>"><?= $term->name; ?></label>
                     </p>
                 <?php }
 
@@ -126,9 +174,10 @@ class Widget_Books_Filter extends WP_Widget
             if ($terms = get_terms('book-authors', 'orderby=name')) :
                 foreach ($terms as $term) { ?>
                     <p>
-                        <input type="checkbox" class="book-filter" id="<?= $term->slug ?>"
-                               value="<?= $term->term_id; ?>">
-                        <label class="book-filter-label" for="<?= $term->slug ?>"><?= $term->name; ?></label>
+                        <input type="checkbox" class="book-filter" id="<?php echo $term->slug ?>"
+                               value="<?php echo $term->term_id; ?>">
+                        <label class="book-filter-label" for="<?php echo $term->slug ?>"
+                               data-taxonomy="<?php echo $term->taxonomy ?>"><?php echo $term->name; ?></label>
                     </p>
                 <?php }
 
@@ -137,11 +186,17 @@ class Widget_Books_Filter extends WP_Widget
             if ($meta = get_post_meta(get_the_ID(), 'book_year_meta_key', true)) {
                 ?>
 
-                <input type="text" name="max_year" placeholder="Max Year"/>
-                <input type="text" name="min_year" placeholder="Min Year"/>
+                <input type="number" value='<?php if (isset($_POST['minYear'])) {
+                    echo $_POST['minYear'];
+                } ?>' name="min_year" placeholder="Min Year" class="book-filter min-year"/>
+                <input type="number" value='<?php if (isset($_POST['maxYear'])) {
+                    echo $_POST['maxYear'];
+                } ?>' name="max_year" placeholder="Max Year" class="book-filter max-year"/>
 
                 <?php
             }
+
+            echo '</form>';
 
             echo '</div>';
 
@@ -157,7 +212,7 @@ class Widget_Books_Filter extends WP_Widget
         ?>
         <p>
             <label
-                for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_attr_e('Title:', 'text_domain'); ?></label>
+                    for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_attr_e('Title:', 'text_domain'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>"
                    name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text"
                    value="<?php echo esc_attr($title); ?>">

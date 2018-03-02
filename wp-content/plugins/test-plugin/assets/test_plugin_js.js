@@ -1,6 +1,19 @@
-/**
- * Created by phpstudent on 28.02.18.
- */
-$(document).ready(function(){
-    $('.slider').slick();
+$(function(){
+    $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:20,
+        nav:true,
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    });
 });

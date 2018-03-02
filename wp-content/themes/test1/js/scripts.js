@@ -9,25 +9,31 @@ $(function () {
     /*send ajax by click on reference*/
 
     $('.book-filter').on('change', function () {
-        // e.preventDefault();
 
         var el = $(this),
 
-            elLink = el.attr('id'),
-            elTitle = el.next().text();
+            elTerm = el.attr('id'),
+            elTitle = el.next().text(),
+            elTaxonomy = el.next().attr('data-taxonomy'),
+            toArray = elTaxonomy+'|'+elTerm,
+
+            elMaxYear = $('input[name="max_year"]').val(),
+            elMinYear = $('input[name="min_year"]').val();
+
+
 
         if (this.checked) {
-            allTax.push(elLink);
+            allTax.push(toArray);
             allTitles.push(elTitle);
         } else {
-            var idx = $.inArray(elLink, allTax);
+            var idx = $.inArray(toArray, allTax);
             if (idx > -1) {
                 allTax.splice(idx, 1);
             }
 
-            if (allTax.length == 0) {
-                window.location.href = "/books/"
-            }
+            // if (allTax.length == 0) {
+            //     window.location.href = "/books/"
+            // }
 
             var idxx = $.inArray(elTitle, allTitles);
             if (idx > -1) {
@@ -39,9 +45,9 @@ $(function () {
 
         document.title = elTitle;
 
-        history.pushState({page_title: elTitle}, elTitle, elLink);
+        history.pushState({page_title: elTitle}, elTitle, elTerm);
 
-        ajaxCat(elLink, allTitles, allTax);
+        ajaxCat(elTerm, allTitles, allTax, elMaxYear, elMinYear);
 
 
     });
@@ -49,7 +55,7 @@ $(function () {
 
     /*ajax*/
 
-    function ajaxCat(elLink, allTitles, allTax) {
+    function ajaxCat(elTerm, allTitles, allTax, elMaxYear, elMinYear) {
 
         mainContent.animate({opacity: .5}, 300);
 
@@ -57,9 +63,12 @@ $(function () {
             customAjax.ajaxurl,
             {
                 action: 'getCat',
-                link: elLink,
+                link: elTerm,
                 title: allTitles,
-                allTax: allTax
+                allTax: allTax,
+                maxYear: elMaxYear,
+                minYear: elMinYear
+
             },
             function (response) {
                 mainContent

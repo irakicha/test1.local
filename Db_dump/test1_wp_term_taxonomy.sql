@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
--- Host: localhost    Database: test1
+-- Host: 127.0.0.1    Database: test1
 -- ------------------------------------------------------
 -- Server version	5.7.21-0ubuntu0.16.04.1
 
@@ -41,7 +41,7 @@ CREATE TABLE `wp_term_taxonomy` (
 
 LOCK TABLES `wp_term_taxonomy` WRITE;
 /*!40000 ALTER TABLE `wp_term_taxonomy` DISABLE KEYS */;
-INSERT INTO `wp_term_taxonomy` VALUES (1,1,'category','',0,1),(4,4,'nav_menu','',0,5),(5,5,'nav_menu','',0,2),(6,6,'category','',0,3),(8,8,'book-genre','Satire genre',0,2),(9,9,'book-genre','Fantasy genre',0,3),(10,10,'book-genre','Tragedy genre',0,2),(11,11,'book-author','Stephen King',0,2),(12,12,'book-author','John Ronald Reuel Tolkien',0,1),(13,13,'book-author','William Shakespeare',0,2),(14,14,'book-author','Charles Bukowski',0,1),(15,15,'book-author','Chuck Palahniuk',0,1),(16,16,'book genres','Satire Genre',0,2),(17,17,'book genres','Fantasy genre',0,3),(18,18,'book genres','Tragedy genre',0,2),(20,20,'book-authors','Stephen King ',0,2),(23,23,'book-authors','William Shakespeare',0,2),(24,24,'book-authors','Charles Bukowski',0,1),(25,25,'book-authors','John Ronald Reuel Tolkien',0,1),(26,26,'book-authors','Chuck Palahniuk',0,1),(28,28,'book-genres','Fantasy genre',0,3),(29,29,'book-genres','Satire genre',0,2),(30,30,'book-genres','Tragedy genre',0,2);
+INSERT INTO `wp_term_taxonomy` VALUES (1,1,'category','',0,1),(4,4,'nav_menu','',0,5),(5,5,'nav_menu','',0,2),(6,6,'category','',0,3),(20,20,'book-authors','Stephen King ',0,2),(23,23,'book-authors','William Shakespeare',0,2),(24,24,'book-authors','Charles Bukowski',0,1),(25,25,'book-authors','John Ronald Reuel Tolkien',0,1),(26,26,'book-authors','Chuck Palahniuk',0,1),(28,28,'book-genres','Fantasy genre',0,4),(29,29,'book-genres','Satire genre',0,2),(30,30,'book-genres','Tragedy genre',0,2);
 /*!40000 ALTER TABLE `wp_term_taxonomy` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28 18:18:03
+-- Dump completed on 2018-03-02 13:24:06

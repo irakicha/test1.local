@@ -22,7 +22,7 @@
         ?>
         <?php
     else :
-        esc_html_e('No taxonomy!', 'text-domain');
+        esc_html_e('Sorry, no matches found, please try again', 'text-domain');
     endif;
     ?>
 

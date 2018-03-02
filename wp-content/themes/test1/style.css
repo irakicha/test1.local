@@ -187,10 +187,11 @@ h1{
 }
 
 .archive-books-container{
-    padding:30px 25px 5px;
+    padding: 30px 25px 10px;
     border: 1px solid #777777;
-    border-radius:3px;
-    min-height: 640px;
+    border-radius: 3px;
+    mшт-height: 500px;
+    /*overflow-y: hidden;*/
 }
 
 .archive-books-item:hover{
@@ -229,3 +230,22 @@ h1{
     padding: 15px;
 }
 
+.filter-header{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+
+.min-year,
+.max-year{
+    display: inline-block;
+    width: 40%;
+    border-radius: 3px;
+}
+
+.min-year{
+    margin-right: 10px;
+
+
+}

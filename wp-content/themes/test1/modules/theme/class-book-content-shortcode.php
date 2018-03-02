@@ -28,7 +28,14 @@ class Books_Content_Shortcode
                         <a href='<?php echo get_permalink(); ?>'><?php echo the_title(); ?></a>
                     </h2>
                         <p class="publish-year">Publish Year: <?php echo get_post_meta(get_the_ID(), 'book_year_meta_key', true); ?></p>
-                        <p><?php echo the_excerpt(); ?></p>
+                        <p>
+                            <?php
+                                if ($taxes = get_the_taxonomies( get_the_ID() )){
+                                    foreach ($taxes as $tax => $value)
+                                    echo '<p>'.$value.'<p>';
+                                }
+                              ?>
+                        </p>
 
                 </div>
 
