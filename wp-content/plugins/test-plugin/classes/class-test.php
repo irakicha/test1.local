@@ -26,7 +26,8 @@ class Test
         }
 
         extract(shortcode_atts(array(
-            'include' => '', 'id' => $pid,
+            'include' => '',
+            'id' => $pid,
             ),
             $atts));
 
@@ -38,10 +39,10 @@ class Test
 
         $images = get_posts($args);
 
-        require(TEST_PLUGIN_DIR."/templates/image-template.php");
+        require_once(TEST_PLUGIN_DIR."/templates/image-template.php");
 
         return $gallery;
-
+        
 
     }
 
