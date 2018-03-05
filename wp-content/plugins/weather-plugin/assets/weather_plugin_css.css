@@ -1,7 +1,18 @@
-.current-weather{
-    width: 400px;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-
+.current-weather-container{
+    border: 1px solid #555555;
+    border-radius: 3px;
+    padding: 10px 30px 30px;
 }
+
+.current-weather-container h1{
+    border-bottom:1px solid #555555;
+    line-height: 2.5;
+}
+
+
+.current-weather > div {
+    display: inline-block;
+    width:30%;
+    vertical-align: top;
+}
+

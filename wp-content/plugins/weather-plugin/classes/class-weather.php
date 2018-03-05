@@ -11,23 +11,44 @@ class Weather
 
 
 
-    public function weather_func( $atts) {
+    public function weather_func() {
 
-        $key = "9f81bdf4000a4e1b9e9150700180203";
+        $key = get_option('weather_plugin')['token'];
 
-        $params = shortcode_atts( array( // в массиве укажите значения параметров по умолчанию
-            'city' => 'kharkiv', // параметр 1
-        ), $atts );
+        $city = get_option('weather_plugin')['city'] ? get_option('weather_plugin')['city'] : 'kharkiv';
 
-        $url = "http://api.apixu.com/v1/current.json?key=$key&q={$params['city']}&=" ;
+        $show_wind = get_option('weather_plugin')['wind'];
+
+        $url = "http://api.apixu.com/v1/current.json?key=$key&q=$city&=" ;
 
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 
         $json_output=curl_exec($ch);
-        $weather = json_decode($json_output);
-        return "Temperature: " . $params['city'].":".$weather->current->temp_c;
+
+        if ( false === ( $weather = get_transient( 'weather_plugin' ) ) ) {
+            // It wasn't there, so regenerate the data and save the transient
+            set_transient( 'weather_plugin', json_decode($json_output), 1 * HOUR_IN_SECONDS );
+        }
+
+//        set_transient( 'weather_plugin', json_decode($json_output), 1 * HOUR_IN_SECONDS  ); ;
+//
+////        if ( false === ( $value = get_transient( 'weather_plugin' ) ) ) {
+////            // this code runs when there is no valid transient set
+////        }
+//
+//        $weather = get_transient( 'weather_plugin' );
+
+        ob_start();
+
+        require_once (WEATHER_PLUGIN_DIR.'templates/weather-template.php');
+
+        $weather_content=ob_get_contents();
+        ob_end_clean();
+
+        return $weather_content;
+
     }
 
 }
