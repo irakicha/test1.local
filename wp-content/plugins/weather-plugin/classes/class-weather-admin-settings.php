@@ -1,7 +1,11 @@
 <?php
 
+require_once(WEATHER_PLUGIN_DIR.'classes/class-weather-notices.php' );
+
 class Weather_Admin_Settings
 {
+    public $notice;
+
     public function __construct()
     {
         add_action('admin_menu', array($this, 'add_weather_plugin_page'));
@@ -9,12 +13,12 @@ class Weather_Admin_Settings
     }
 
 
-    function add_weather_plugin_page()
+    public function add_weather_plugin_page()
     {
         add_options_page('Weather Plugin Settings', 'Weather Plugin', 'manage_options', 'weather-plugin-settings', array($this, 'weather_options_page_output'));
     }
 
-    function weather_options_page_output()
+    public function weather_options_page_output()
     {
         ?>
         <div class="wrap">
@@ -31,7 +35,7 @@ class Weather_Admin_Settings
         <?php
     }
 
-    function weather_plugin_settings()
+    public function weather_plugin_settings()
     {
         register_setting('weather_plugin_option_group', 'weather_plugin', array($this, 'sanitize_callback'));
 
@@ -45,53 +49,52 @@ class Weather_Admin_Settings
     }
 
 ## Заполняем опцию 1
-    function fill_weather_field1()
+    public function fill_weather_field1()
     {
-        $val = get_option('weather_plugin');
-
-        $val = $val ? $val['token'] : null;
+        $val = self::get_option('token') ? self::get_option('token') : null;
         ?>
-        <input type="text" name="weather_plugin[token]" value="<?php echo esc_attr($val) ?>"/>
+        <input type="text" name="weather_plugin[token]" value="<?php if (get_option('weather_plugin') != 'ERROR_TOKEN') {echo esc_attr($val);} ?>"/>
         <?php
     }
 
-    function fill_weather_field2()
+    public function fill_weather_field2()
     {
-        $val = get_option('weather_plugin');
-
-        $val = $val ? $val['city'] : null;
-        ?>
-        <input type="text" name="weather_plugin[city]" value="<?php echo esc_attr($val) ?>"/>
+        $val = self::get_option('city') ? self::get_option('city') : null;?>
+        <input type="text" id="searchCity" name="weather_plugin[city]" placeholder="Enter city name" value="<?php if (get_option('weather_plugin') != 'ERROR_TOKEN') {echo esc_attr($val);} ?>"/>
         <?php
     }
 
-    function fill_weather_field3(){
+    public function fill_weather_field3(){
 
-        $val = get_option('weather_plugin');
-
-        $val = $val ? $val['wind'] : false;
+        $val = self::get_option('wind') ? self::get_option('wind') : null;
 
         ?>
-        <label><input type="checkbox" name="weather_plugin[wind]" value="1" <?php checked( 1, $val ) ?> /> Check</label>
+        <label><input type="checkbox" name="weather_plugin[wind]" value="1" <?php checked( 1, $val ) ?> /> Check to show wind indexes</label>
         <?php
     }
 
 
     function sanitize_callback($options)
     {
-        // очищаем
-        foreach ($options as $name => & $val) {
-            if ($name == 'input')
-                $val = strip_tags($val);
-
-            if ($name == 'checkbox')
-                $val = intval($val);
-        }
+        delete_transient('weather_plugin');
+//
+//        foreach ($options as $name => & $val) {
+//            if ($name == 'input')
+//            $val = strip_tags($val);
+//
+//            if ($name == 'checkbox')
+//            $val = intval($val);
+//        }
 
         //die(print_r( $options )); // Array ( [input] => aaaa [checkbox] => 1 )
 
         return $options;
     }
+
+    public static function get_option($option_name){
+        return get_option('weather_plugin')[$option_name];
+    }
+
 }
 
 

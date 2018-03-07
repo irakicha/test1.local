@@ -39,9 +39,15 @@ class Test
 
         $images = get_posts($args);
 
+        ob_start();
+
         require_once(TEST_PLUGIN_DIR."/templates/image-template.php");
 
-        return $gallery;
+        $test_content=ob_get_contents();
+
+        ob_end_clean();
+
+        return $test_content;
         
 
     }
