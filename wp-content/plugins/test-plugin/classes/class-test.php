@@ -1,55 +1,52 @@
 <?php
 
-/**
- * User: phpstudent
- * Date: 28.02.18
- * Time: 16:49
- */
 class Test
 {
+    static $gallery_counter = 1;
+
     public function __construct()
     {
         remove_shortcode('gallery');
         add_shortcode('gallery', array($this, 'test_gallery_shortcode'));
+        add_action('print_media_templates',array($this,'gallery_settings'));
+
     }
 
     public function test_gallery_shortcode($atts){
 
-        global $post;
-        $pid = $post->ID;
-        $gallery = "";
+        $atts = shortcode_atts(array(
+                'size' =>'thumbnail',
+                'ids' => '',
+                'columns' => 3,
+                'loop' => 'true',
+                'nav' => 'false',
+                'dots' => 'true',
+                'margin' => 20,
+                'autoplay' => 'false'
 
-        if (empty($pid)) {$pid = $post['ID'];}
+        ), $atts, 'gallery');
 
-        if (!empty( $atts['ids'] ) ) {
-            $atts['include'] = $atts['ids'];
-        }
+        $images = explode(',', $atts['ids']);
 
-        extract(shortcode_atts(array(
-            'include' => '',
-            'id' => $pid,
-            ),
-            $atts));
-
-        $args = array(
-            'post_type' => 'attachment',
-            'post_status' => 'inherit',
-            'post_mime_type' => 'image',
-        );
-
-        $images = get_posts($args);
+        $size = $atts['size'];
 
         ob_start();
 
-        require_once(TEST_PLUGIN_DIR."/templates/image-template.php");
+        require(TEST_PLUGIN_DIR."/templates/image-template.php");
 
         $test_content=ob_get_contents();
 
         ob_end_clean();
 
-        return $test_content;
-        
+        self::$gallery_counter++;
 
+        return $test_content;
+
+    }
+
+    public function gallery_settings(){
+
+        require(TEST_PLUGIN_DIR."/templates/settings-template.php");
     }
 
 }

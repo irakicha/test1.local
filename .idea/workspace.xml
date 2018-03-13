@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efc4e6ad-eaa3-454d-91c7-8dfd403d8667" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_commentmeta.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_comments.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_links.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_options.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_postmeta.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_posts.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_term_relationships.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_term_taxonomy.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_termmeta.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_terms.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_usermeta.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Db_dump/test1_wp_users.sql" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_css.css" afterPath="$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_css.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-assets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-assets.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php" afterPath="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php" afterPath="$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php" afterPath="$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_css.css" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_js.js" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_js.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-admin-settings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-admin-settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-assets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-assets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather.php" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/templates/weather-template.php" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/templates/weather-template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/weather.php" afterPath="$PROJECT_DIR$/wp-content/plugins/weather-plugin/weather.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,23 +36,6 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="test1@localhost" type="e3449647:DbNodeDescriptor" />
       </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="test1@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="test1" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="test1@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="test1" type="e3449647:DbNodeDescriptor" />
-        <item name="wp_options" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="test1@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="test1" type="e3449647:DbNodeDescriptor" />
-        <item name="wp_term_taxonomy" type="e3449647:DbNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
@@ -83,49 +50,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="class-weather-notices.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-notices.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="76" lean-forward="false" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
-              <folding>
-                <marker date="1520362483293" expanded="true" signature="495:1673" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class-weather.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="weather-template.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/templates/weather-template.php">
+      <file leaf-file-name="class-test-assets.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-assets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-              <folding>
-                <element signature="e#1147#1152#0#HTML" expanded="true" />
-                <element signature="e#1228#1233#0#HTML" expanded="true" />
-                <element signature="e#1316#1321#0#HTML" expanded="true" />
-                <element signature="e#1397#1402#0#HTML" expanded="true" />
-                <marker date="1520411055506" expanded="false" signature="1914:1919" ph="°" />
-              </folding>
+            <state relative-caret-position="312">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="weather_plugin_css.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_css.css">
+      <file leaf-file-name="image-template.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="340">
+              <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings-template.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/settings-template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -184,12 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/core/class-add-new-metabox.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-publish-year-metabox.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/test1/taxonomy.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/core/class-register-taxonomy.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/core/class-register-content-type.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/Books.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-content-type-book.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-test1_theme_setup.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-add-taxonomy-to-link.php" />
@@ -209,12 +182,10 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-styles.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-test1-theme-settings.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-assets.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_css.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-book-content-shortcode.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/template-parts/books.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/js/scripts.js" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_js.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-widget-book-filter.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/api-plugin/index.php" />
@@ -230,11 +201,19 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-assets.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-admin-settings.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-notices.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/weather-plugin/templates/weather-template.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_css.css" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin1/test.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin1/templates/image-template.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin1/classes/class-test-assets.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin1/classes/class-test.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin1/templates/settings-template.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_css.css" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/settings-template.php" />
       </list>
     </option>
   </component>
@@ -248,11 +227,11 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="283" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="6" />
     <option name="y" value="69" />
-    <option name="width" value="1229" />
-    <option name="height" value="827" />
+    <option name="width" value="1498" />
+    <option name="height" value="823" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -270,6 +249,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -293,7 +273,7 @@
               <item name="test1.local" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="akismet" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test-plugin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="test1.local" type="b2602c69:ProjectViewProjectNode" />
@@ -301,6 +281,7 @@
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="test-plugin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="test1.local" type="b2602c69:ProjectViewProjectNode" />
@@ -355,40 +336,15 @@
               <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="test1.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test1.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="test1" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="test1.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test1.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="test1" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="test1.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test1.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="test1" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -504,27 +460,30 @@
       <workItem from="1520324816601" duration="19219000" />
       <workItem from="1520346878989" duration="9417000" />
       <workItem from="1520410838063" duration="319000" />
+      <workItem from="1520586449976" duration="1937000" />
+      <workItem from="1520971443798" duration="9760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262849000" />
+    <option name="totallyTimeSpent" value="274546000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="283" y="69" width="1570" height="900" extended-state="6" />
+    <frame x="6" y="69" width="1498" height="823" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298292" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.056760203" sideWeight="0.49484536" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1590909" sideWeight="0.49484536" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32860824" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123086736" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12901069" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18988174" sideWeight="0.5051546" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997396" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18988174" sideWeight="0.5051546" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -559,41 +518,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="977">
-          <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/test1/modules/theme/class-widget-book-filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/query-monitor-master/query-monitor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -806,13 +730,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/b67a327a/df2ab587-7993-4ad8-b61d-f76b694dd6e1/test1.wp_options">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://table:/b67a327a/df2ab587-7993-4ad8-b61d-f76b694dd6e1/test1.wp_options" />
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/tiny-compress-images/src/class-tiny-notices.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="709">
@@ -831,28 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-assets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="45" lean-forward="false" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -877,9 +773,10 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/templates/weather-template.php" />
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather-notices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="20">
           <caret line="12" column="76" lean-forward="false" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
           <folding>
             <marker date="1520362483293" expanded="true" signature="495:1673" ph="..." />
@@ -890,29 +787,79 @@
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/classes/class-weather.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/templates/weather-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding>
-            <element signature="e#1147#1152#0#HTML" expanded="true" />
-            <element signature="e#1228#1233#0#HTML" expanded="true" />
-            <element signature="e#1316#1321#0#HTML" expanded="true" />
-            <element signature="e#1397#1402#0#HTML" expanded="true" />
-            <marker date="1520411055506" expanded="false" signature="1914:1919" ph="°" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/weather-plugin/assets/weather_plugin_css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="380">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/assets/test_plugin_css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test-assets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/image-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/classes/class-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/test-plugin/templates/settings-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
           <folding />
         </state>
       </provider>

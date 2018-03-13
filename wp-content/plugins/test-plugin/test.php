@@ -20,10 +20,11 @@ define( 'TEST_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 register_activation_hook( __FILE__, array( ) );
 register_deactivation_hook( __FILE__, array( ) );
 
-require_once(TEST_PLUGIN_DIR.'classes/class-test.php' );
 require_once(TEST_PLUGIN_DIR.'classes/class-test-assets.php' );
+require_once(TEST_PLUGIN_DIR.'classes/class-test.php' );
 
-$test_gallery = new Test();
 $test_gallery_assets = new Test_Assets();
+$test_gallery = new Test();
 
-
+//var_dump($test_gallery);
+//echo $test_gallery::$gallery_counter;

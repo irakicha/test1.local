@@ -26,7 +26,7 @@ class Test_Assets
     public function plugin_enqueue_scripts()
     {
         wp_enqueue_script('owl_carousel_js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js', array('jquery'));
-        wp_enqueue_script('test_plugin_js', TEST_PLUGIN_URL.'/assets/test_plugin_js.js', array('owl_carousel_js') );
+//        wp_enqueue_script('test_plugin_js', TEST_PLUGIN_URL.'/assets/test_plugin_js.js', array('owl_carousel_js') );
 
     }
 
