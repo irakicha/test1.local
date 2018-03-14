@@ -26,7 +26,9 @@ $(function () {
             allTax.push(toArray);
             allTitles.push(elTitle);
         } else {
+
             var idx = $.inArray(toArray, allTax);
+
             if (idx > -1) {
                 allTax.splice(idx, 1);
             }
@@ -44,8 +46,6 @@ $(function () {
         }
 
         document.title = elTitle;
-
-        history.pushState({page_title: elTitle}, elTitle, elTerm);
 
         ajaxCat(elTerm, allTitles, allTax, elMaxYear, elMinYear);
 

@@ -8,22 +8,21 @@
 
     <?php
 
-    if ($query->have_posts()) :
-        ?>
-        <?php
-        while ($query->have_posts()) :
-            $query->the_post();
-            ?>
-                <?php echo do_shortcode( '[book-content]' ); ?>
-            
-            <?php
-        endwhile;
-        wp_reset_postdata();
-        ?>
-        <?php
-    else :
+    if (isset($query)){
+        if ($query->have_posts()) {
+
+            while ($query->have_posts()) {
+                $query->the_post();
+
+                echo do_shortcode( '[book-content]' );
+            }
+        }
+    } else {
         esc_html_e('Sorry, no matches found, please try again', 'text-domain');
-    endif;
+    }
+
+    wp_reset_postdata();
+
     ?>
 
 </div>

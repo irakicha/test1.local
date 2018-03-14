@@ -5,28 +5,28 @@
 
 <script type="text/html" id="tmpl-my-custom-gallery-setting">
     <label class="setting">
-        <span><?php _e('Loop'); ?></span>
+        <span><?php _e('Loop (dafault: false)'); ?></span>
         <select data-setting="loop">
             <option value="true"> Yes </option>
             <option value="false"> No </option>
         </select>
     </label>
     <label class="setting">
-        <span><?php _e('Navigation arrows'); ?></span>
+        <span><?php _e('Navigation arrows (dafault: false)'); ?></span>
         <select data-setting="nav">
             <option value="true"> Yes </option>
             <option value="false"> No </option>
         </select>
     </label>
     <label class="setting">
-        <span><?php _e('Dots'); ?></span>
+        <span><?php _e('Dots (dafault: true)'); ?></span>
         <select data-setting="dots">
             <option value="true"> Yes </option>
             <option value="false"> No </option>
         </select>
     </label>
     <label class="setting">
-        <span><?php _e('Margin (px)'); ?></span>
+        <span><?php _e('Margin (px) (dafault: 20px)'); ?></span>
         <select data-setting="margin">
             <option value="5"> 5 </option>
             <option value="10"> 10 </option>
@@ -35,7 +35,7 @@
         </select>
     </label>
     <label class="setting">
-        <span><?php _e('Autoplay'); ?></span>
+        <span><?php _e('Autoplay (dafault: false)'); ?></span>
         <select data-setting="autoplay">
             <option value="false"> No </option>
             <option value="true"> Yes </option>
@@ -50,7 +50,7 @@
         // add your shortcode attribute and its default value to the
         // gallery settings list; $.extend should work as well...
         _.extend(wp.media.gallery.defaults, {
-            my_custom_attr: 'default_val'
+            type: 'default_val'
         });
 
         // merge default gallery settings template with yours

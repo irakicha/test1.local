@@ -27,16 +27,15 @@ get_header();
 
                     endwhile; ?>
 
-                    <?php wp_reset_postdata(); ?>
                 </div>
-                <?php
 
-                else :
+                <?php else : ?>
 
-                    echo 'you have no posts';
+                    <?php esc_html_e('Sorry, no matches found, please try again', 'text-domain'); ?>
 
-                endif;
-                ?>
+                <?php endif; ?>
+
+                <?php wp_reset_postdata(); ?>
 
             </div>
 

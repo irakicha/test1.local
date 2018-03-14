@@ -15,8 +15,8 @@ class Widget_Books_Filter extends WP_Widget
             register_widget(__CLASS__);
         });
 
-        add_action('wp_ajax_getCat', array(get_called_class(), 'ajax_showCat'));
-        add_action('wp_ajax_nopriv_getCat', array(get_called_class(), 'ajax_showCat'));
+        add_action('wp_ajax_getCat', array($this, 'ajax_showCat'));
+        add_action('wp_ajax_nopriv_getCat', array($this, 'ajax_showCat'));
 
     }
 
@@ -24,7 +24,7 @@ class Widget_Books_Filter extends WP_Widget
     function ajax_showCat()
     {
 
-        print_r($_POST);
+//        print_r($_POST);
 
         $book_genres = [];
         $book_authors = [];
@@ -69,64 +69,40 @@ class Widget_Books_Filter extends WP_Widget
                     ),
 
                 )
+
             );
+
+            if (!empty($_POST['minYear']) || !empty($_POST['maxYear'])) {
+
+                $min_year = $_POST['minYear'] ? wp_kses_post($_POST['minYear']) : '0000';
+                $max_year = $_POST['maxYear'] ? wp_kses_post($_POST['maxYear']) : date('Y');
+
+
+                $args_2 = array(
+                    'post_type' => 'books',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'book_year_meta_key',
+                            'value' => array($min_year, $max_year),
+                            'compare' => 'BETWEEN',
+                        ),
+                    )
+                );
+
+                $args = array_merge($args,$args_2);
+
+            }
+
+
             $query = new WP_Query($args);
 
-            require(get_template_directory() . '/template-parts/books.php');
+            if ($query) {
+                require(get_template_directory() . '/template-parts/books.php');
+                die();
+            }
 
-            die();
+
         }
-
-
-        if (!empty($_POST['minYear']) || !empty($_POST['maxYear'])) {
-
-        $min_year = $_POST['minYear'] ? wp_kses_post($_POST['minYear']) : '0000';
-        $max_year = $_POST['maxYear'] ? wp_kses_post($_POST['maxYear']) : date('Y');
-
-
-            $args = array(
-                'post_type' => 'books',
-                'meta_query' => array(
-                    array(
-                        'key' => 'book_year_meta_key',
-                        'value' => array($min_year, $max_year),
-                        'compare' => 'BETWEEN',
-                    ),
-                )
-            );
-            $query = new WP_Query($args);
-
-            require(get_template_directory() . '/template-parts/books.php');
-
-            die();
-        }
-
-
-//            $query = new WP_Query($args);
-
-//
-//        $min_year = !empty($_POST['minYear']) ? wp_kses_post($_POST['minYear']) : '0000';
-//        $max_year = !empty($_POST['maxYear']) ? wp_kses_post($_POST['maxYear']) : date('Y');
-//
-//        if( isset( $min_year ) || isset( $max_year ) ) {
-//            $args = array(
-//                'post_type' => 'books',
-//                'meta_query' => array(
-//                    array(
-//                        'key' => 'book_year_meta_key',
-//                        'value' =>array( $min_year, $max_year ),
-//                        'compare' => 'BETWEEN',
-//                    ),
-//                )
-//            );
-//            $query = new WP_Query($args);
-//        }
-
-//        $query = new WP_Query($args);
-
-//        require(get_template_directory() . '/template-parts/books.php');
-//
-//        die();
 
 
     }
@@ -183,15 +159,17 @@ class Widget_Books_Filter extends WP_Widget
 
             endif;
 
+            echo '<p>Select Publish Year</p>';
+
             if ($meta = get_post_meta(get_the_ID(), 'book_year_meta_key', true)) {
                 ?>
 
                 <input type="number" value='<?php if (isset($_POST['minYear'])) {
                     echo $_POST['minYear'];
-                } ?>' name="min_year" placeholder="Min Year" class="book-filter min-year"/>
+                } ?>' name="min_year" placeholder="Min" class="book-filter min-year"/>
                 <input type="number" value='<?php if (isset($_POST['maxYear'])) {
                     echo $_POST['maxYear'];
-                } ?>' name="max_year" placeholder="Max Year" class="book-filter max-year"/>
+                } ?>' name="max_year" placeholder="Max" class="book-filter max-year"/>
 
                 <?php
             }

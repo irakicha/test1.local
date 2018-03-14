@@ -25,7 +25,13 @@ class Test_Assets
 
     public function plugin_enqueue_scripts()
     {
-        wp_enqueue_script('owl_carousel_js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js', array('jquery'));
+        global $wp_scripts;
+        if (!is_admin()) {
+            wp_deregister_script('jquery');
+        }
+
+        wp_enqueue_script('jquery', 'http://code.jquery.com/jquery-3.3.1.min.js');
+        wp_enqueue_script('owl_carousel_js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js', array('jquery'), false, false);
 //        wp_enqueue_script('test_plugin_js', TEST_PLUGIN_URL.'/assets/test_plugin_js.js', array('owl_carousel_js') );
 
     }

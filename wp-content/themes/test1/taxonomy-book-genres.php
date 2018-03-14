@@ -32,7 +32,7 @@ get_header();
 
                 else :
 
-                    echo 'you have no posts';
+                    esc_html_e('Sorry, no matches found, please try again', 'text-domain');
 
                 endif;
                 ?>
